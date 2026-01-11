@@ -9,6 +9,7 @@ import SellerLogin from './pages/SellerLogin';
 import SellerRegister from './pages/SellerRegister';
 import DeliveryLogin from './pages/DeliveryLogin';
 import DeliveryRegister from './pages/DeliveryRegister';
+import About from './pages/About'; // Import the component
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
         <Route path="/register/seller" element={<SellerRegister />} />
         <Route path="/login/delivery" element={<DeliveryLogin />} />
         <Route path="/register/delivery" element={<DeliveryRegister />} />
+        <Route path="/about" element={<About />} />
       </Routes>
     </Router>
   );

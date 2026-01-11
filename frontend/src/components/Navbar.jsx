@@ -21,7 +21,9 @@ const Navbar = () => {
             
             <ul className={isMobile ? "nav-links-mobile": "nav-links"} onClick={() => setIsMobile(false)}>
                 <li><a href="#home" >HOME</a></li>
-                <li><a href="#about" >ABOUT</a></li>
+                <li>
+                    <Link to="/about">ABOUT</Link>
+                </li>
                 <li><a href="#shop" >SHOP</a></li>
                 <li><a href="#contact" >CONTACT</a></li>
                 <li className='login-btn-container'>
