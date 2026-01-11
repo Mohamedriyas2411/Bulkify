@@ -20,12 +20,16 @@ const Navbar = () => {
             </button>
             
             <ul className={isMobile ? "nav-links-mobile": "nav-links"} onClick={() => setIsMobile(false)}>
-                <li><a href="#home" >HOME</a></li>
+                <li>
+                    <Link to="/">HOME</Link>
+                </li>
                 <li>
                     <Link to="/about">ABOUT</Link>
                 </li>
                 <li><a href="#shop" >SHOP</a></li>
-                <li><a href="#contact" >CONTACT</a></li>
+                <li>
+                    <Link to="/contact">CONTACT</Link>
+                </li>
                 <li className='login-btn-container'>
                     <Link to="/join" className='login-link'>LOGIN</Link>
                 </li>
