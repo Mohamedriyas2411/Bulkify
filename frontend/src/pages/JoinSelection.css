@@ -1,0 +1,60 @@
+/* frontend/pages/JoinSelection.css */
+
+.join-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Centers content horizontally */
+  justify-content: center;
+  width: 100%;
+  animation: slideUp 0.8s ease-out;
+}
+
+.join-heading {
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: #1f2937; /* Dark Grey/Greenish tone */
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom: 2.5rem;
+}
+
+.button-group {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem; /* Space between buttons */
+  width: 100%;
+  max-width: 300px; /* Limits width so buttons aren't too wide */
+}
+
+.role-button {
+  background-color: #F97316; /* Your Brand Orange */
+  color: white;
+  border: none;
+  padding: 15px 0;
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  border-radius: 50px; /* Pill shape */
+  cursor: pointer;
+  box-shadow: 0 4px 6px rgba(249, 115, 22, 0.2);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.3s;
+  text-transform: uppercase;
+}
+
+.role-button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 15px rgba(249, 115, 22, 0.3);
+  background-color: #ea580c; /* Slightly darker orange on hover */
+}
+
+.role-button:active {
+  transform: translateY(-1px);
+}
+
+/* Responsive adjustment for mobile */
+@media (max-width: 768px) {
+  .join-content {
+    margin-top: 2rem;
+  }
+}
