@@ -11,6 +11,8 @@ import DeliveryLogin from './pages/DeliveryLogin';
 import DeliveryRegister from './pages/DeliveryRegister';
 import About from './pages/About'; // Import the component
 import Contact from './pages/Contact';
+import SellerDashboard from './pages/SellerDashboard';
+
 
 function App() {
   return (
@@ -26,6 +28,8 @@ function App() {
         <Route path="/register/delivery" element={<DeliveryRegister />} />
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact />} />
+        <Route path="/seller/dashboard" element={<SellerDashboard />} />
+        
       </Routes>
     </Router>
   );
