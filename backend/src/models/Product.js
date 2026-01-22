@@ -11,6 +11,8 @@ const ProductSchema = new mongoose.Schema({
     quantity:{type:Number, required:true},
     price:{type:Number, required:true},
     minQuantity:{type:Number,required: true},
+    category:{type:String, default: 'General', required: true},
+    description:{type:String, default: ''},
     discount:{type:Number, default:0},
     image:{type:String}
 });

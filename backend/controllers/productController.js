@@ -10,7 +10,7 @@ exports.getAllProducts = async (req, res) => {
 
 exports.createProduct = async (req, res) => {
   try {
-    const { name, quantity, price, minQuantity, discount, image } = req.body;
+    const { name, quantity, price, minQuantity,  discount, image, category, description } = req.body;
     // TODO: Save to database
     res.status(201).json({ message: 'Product created' });
   } catch (error) {

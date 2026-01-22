@@ -2,7 +2,7 @@ const Product = require('../models/Product');
 
 exports.addProduct = async (req, res)=>{
     try{
-        const {name, quantity, price, minQuantity, discount, image}=req.body;
+        const {name, quantity, price, minQuantity, discount,  image, category, description}=req.body;
 
         const newProduct = new Product({
             seller: req.seller.id,
@@ -11,7 +11,9 @@ exports.addProduct = async (req, res)=>{
             price,
             minQuantity,
             discount,
-            image
+            image,
+            category,
+            description
         });
 
         const product = await newProduct.save();
@@ -34,7 +36,7 @@ exports.getMyProducts = async (req,res) =>{
 
 exports.updateProduct = async(req,res)=>{
     try{
-        const{name,quantity,price,minQuantity,discount,image} =req.body;
+        const{name,quantity,price,minQuantity,discount,image, category, description} =req.body;
         let product = await Product.findById(req.params.id);
         if(!product) return res.status(404).json({msg:'Product not found'});
 
@@ -44,7 +46,7 @@ exports.updateProduct = async(req,res)=>{
 
         product = await Product.findByIdAndUpdate(
             req.params.id,
-            {$set:{name, quantity,price,minQuantity, discount,image}},
+            {$set:{name, quantity,price,minQuantity, discount,image, category, description}},
             {new:true}
         );
         res.json(product);

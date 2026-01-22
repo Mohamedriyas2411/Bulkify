@@ -10,7 +10,9 @@ const ProductModal = ({ isOpen, onClose, onSave, productToEdit }) => {
     price: '',
     minQuantity: '',
     discount: '',
-    image: '' // Will store base64 string
+    image: '' ,
+    category: '',
+    description: ''
   });
 
   // Populate form if editing
@@ -81,6 +83,22 @@ const ProductModal = ({ isOpen, onClose, onSave, productToEdit }) => {
           <div className="form-group">
             <label>Discount Percentage for Bulk Order</label>
             <input name="discount" type="number" value={formData.discount} onChange={handleChange} className="modal-input" />
+          </div>
+
+          <div className="form-group">
+            <label>Category</label>
+            <select name="category" className='modal-input' id="" value={formData.category} onChange={handleChange}>
+              <option value="">Select Category</option>
+              <option value="general">General</option>
+              <option value="fresh">Fresh</option>
+              <option value="packaged">Packaged</option>
+              <option value="clothing">Dry</option>
+            </select>
+          </div>
+
+          <div className="form-group">
+            <label>Description</label>
+            <textarea name="description" value={formData.description} onChange={handleChange} className="modal-input" />
           </div>
 
           {/* Image Upload Section */}
