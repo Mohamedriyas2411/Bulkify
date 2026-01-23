@@ -13,7 +13,9 @@ import About from './pages/About'; // Import the component
 import Contact from './pages/Contact';
 import SellerDashboard from './pages/SellerDashboard';
 import BuyerDashboard from './pages/BuyerDashboard';
-
+import ProductDetails from './pages/ProductDetails';
+import Cart from './pages/Cart';
+import Community from './pages/Community';
 
 function App() {
   return (
@@ -31,7 +33,9 @@ function App() {
         <Route path="/contact" element={<Contact />} />
         <Route path="/seller/dashboard" element={<SellerDashboard />} />
         <Route path="/buyer/dashboard" element={<BuyerDashboard />} />
-        
+        <Route path="/product/:id" element={<ProductDetails />} />
+        <Route path="/cart" element={<Cart />} />
+        <Route path="/community" element={<Community />} />
       </Routes>
     </Router>
   );

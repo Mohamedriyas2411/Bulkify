@@ -1,0 +1,157 @@
+/* frontend/pages/Cart.css */
+
+.cart-container {
+  min-height: 100vh;
+  background-color: white;
+  font-family: 'Poppins', sans-serif;
+}
+
+/* --- Header Strip (Orange background behind search) --- */
+.cart-header-strip {
+  background-color: #F97316; /* Brand Orange */
+  padding: 1rem 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.header-search-wrapper {
+  position: relative;
+  width: 90%;
+  max-width: 600px;
+}
+
+.header-search-input {
+  width: 100%;
+  padding: 12px 45px 12px 20px;
+  border-radius: 30px;
+  border: none;
+  font-size: 1rem;
+  outline: none;
+}
+
+.header-search-icon {
+  position: absolute;
+  right: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #F97316;
+}
+
+/* --- Main Content --- */
+.cart-content {
+  padding: 2rem 4rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* --- Tabs (Cart / Wishlist) --- */
+.cart-tabs {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin-bottom: 3rem;
+}
+
+.tab-btn {
+  border: none;
+  padding: 10px 40px;
+  border-radius: 10px;
+  font-size: 1.1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.active-orange {
+  background-color: #F97316;
+  color: white;
+  box-shadow: 0 4px 10px rgba(249, 115, 22, 0.4);
+}
+
+.inactive-grey {
+  background-color: #e5e7eb; /* Light grey */
+  color: #333;
+}
+
+/* --- Cart Grid --- */
+.cart-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 2rem;
+}
+
+.cart-card {
+  display: flex;
+  flex-direction: column;
+  /* No border or shadow in image 10.jpg, very clean look, 
+     but added minimal formatting for structure */
+  padding-bottom: 1rem;
+}
+
+.cart-img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 15px;
+  margin-bottom: 1rem;
+}
+
+.cart-details {
+  padding: 0 0.5rem;
+}
+
+.cart-title {
+  font-size: 1.2rem;
+  font-weight: 400; /* Regular weight */
+  color: #1f2937;
+  margin-bottom: 0.2rem;
+}
+
+.cart-price {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #000;
+  margin-bottom: 0.2rem;
+}
+
+.cart-qty {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #000; /* Black text as per image */
+  margin-bottom: 1rem;
+}
+
+/* Remove Button */
+.btn-remove {
+  background-color: #ff4d4f; /* Red/Pinkish color */
+  color: white;
+  border: none;
+  padding: 6px 20px;
+  border-radius: 20px; /* Pill shape */
+  font-size: 0.9rem;
+  cursor: pointer;
+  float: right; /* Aligns button to right side like image */
+}
+
+.btn-remove:hover {
+  background-color: #ff7875;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .cart-content {
+    padding: 1rem;
+  }
+  .cart-grid {
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+    gap: 1rem;
+  }
+  .cart-tabs {
+    gap: 1rem;
+  }
+  .tab-btn {
+    padding: 8px 20px;
+    font-size: 1rem;
+  }
+}

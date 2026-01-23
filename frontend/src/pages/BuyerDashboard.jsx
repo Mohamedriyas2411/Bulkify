@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import BuyerNavbar from '../components/BuyerNavbar';
 import { Search, ShoppingBag } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 import './BuyerDashboard.css'; // We will create this
 import bannerBg from '../assets/banner-bg.png';
 
@@ -9,6 +10,7 @@ const BuyerDashboard = () => {
   const [filteredProducts, setFilteredProducts] = useState([]);
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedCategory, setSelectedCategory] = useState('fresh'); // Default active category
+  const navigate = useNavigate();
 
   // 1. Fetch Nearby Products on Load
   useEffect(() => {
@@ -54,6 +56,10 @@ const BuyerDashboard = () => {
 
     setFilteredProducts(result);
   }, [searchTerm, selectedCategory, products]);
+
+  const handleProductClick = (id) => {
+    navigate(`/product/${id}`);
+  };
 
   return (
     <div className="dashboard-container">
@@ -105,7 +111,12 @@ const BuyerDashboard = () => {
           <div className="product-grid">
             {filteredProducts.length > 0 ? (
               filteredProducts.map((product) => (
-                <div key={product._id} className="product-card">
+                <div 
+                  key={product._id} 
+                  className="product-card"
+                  style={{ cursor: 'pointer' }}
+                  onClick={() => handleProductClick(product._id)}
+                >
                   <img 
                     src={product.image || "https://via.placeholder.com/150"} 
                     alt={product.name} 
@@ -115,8 +126,8 @@ const BuyerDashboard = () => {
                   <p className="product-price">Rs. {product.price}</p>
                   
                   <div className="card-actions-buyer">
-                    <button className="btn-add-cart">
-                      <ShoppingBag size={16} /> add
+                    <button className="btn-add-cart" onClick={e => e.stopPropagation()}>
+                      <ShoppingBag size={16} onClick={handleProductClick} /> Add
                     </button>
                   </div>
                 </div>

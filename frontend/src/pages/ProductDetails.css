@@ -1,0 +1,193 @@
+.details-container {
+  background-color: white;
+  min-height: 100vh;
+  position: relative;
+}
+
+
+.dummy-search-bar {
+  background: white;
+  width: 100%;
+  max-width: 600px;
+  padding: 12px 20px;
+  border-radius: 30px;
+  color: #888;
+}
+
+/* --- Main Card Layout --- */
+.product-details-card {
+  display: flex;
+  max-width: 1200px;
+  margin: 0 auto;
+  min-height: 80vh;
+}
+
+/* --- Left Side --- */
+.details-left {
+  flex: 1;
+  padding: 3rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.back-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  margin-bottom: 1rem;
+  align-self: flex-start;
+}
+
+.detail-title {
+  font-size: 3rem;
+  font-weight: 800;
+  color: #F97316;
+  text-transform: uppercase;
+  margin-bottom: 0.5rem;
+}
+
+.shop-name {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #333;
+  margin-bottom: 1.5rem;
+  line-height: 1.4;
+}
+
+.price-tag {
+  margin-bottom: 1.5rem;
+}
+.price-tag .unit {
+  font-size: 1.2rem;
+  font-weight: 700;
+  display: block;
+}
+.price-tag .price {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: #333;
+}
+
+.min-qty-text {
+  font-size: 1rem;
+  margin-bottom: 2rem;
+}
+
+.description-section {
+  margin-bottom: 2rem;
+  color: #555;
+  line-height: 1.6;
+}
+.description-section h3 {
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+  color: #333;
+}
+
+/* Action Buttons */
+.action-row {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.qty-selector {
+  display: flex;
+  align-items: center;
+  background: #F97316;
+  border-radius: 10px;
+  padding: 5px 10px;
+  color: white;
+  font-weight: bold;
+}
+.qty-selector button {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 1.2rem;
+  padding: 0 10px;
+  cursor: pointer;
+}
+
+.add-cart-btn-large {
+  background-color: #F97316;
+  color: white;
+  border: none;
+  padding: 12px 30px;
+  border-radius: 30px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+.add-cart-btn-large:hover {
+  transform: scale(1.05);
+}
+
+.wishlist-icon {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 0.8rem;
+  cursor: pointer;
+}
+
+
+/* --- Right Side (Image Area) --- */
+.details-right {
+  flex: 1;
+  background-color: #F97316; /* Fallback */
+  background: linear-gradient(135deg, #ffa726 0%, #f57c00 100%);
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+/* Creating the wavy pink blob effect via CSS or SVG would be complex. 
+   Using a simplified decorative background instead. */
+.blob-bg {
+  position: absolute;
+  width: 80%;
+  height: 80%;
+  background: white;
+  border-radius: 50% 40% 60% 50%;
+  opacity: 0.2;
+}
+
+.detail-hero-img {
+  width: 70%;
+  height: auto;
+  z-index: 10;
+  filter: drop-shadow(0 10px 20px rgba(0,0,0,0.2));
+  border-radius: 20px; /* Optional if image isn't transparent PNG */
+}
+
+
+.orange-star-decoration {
+  position: absolute;
+  bottom: 15%;
+  left: 15%;
+  width: 60px;
+  height: 60px;
+  background: #F97316;
+  transform: rotate(45deg);
+}
+
+@media (max-width: 900px) {
+  .product-details-card {
+    flex-direction: column;
+  }
+  .details-right {
+    min-height: 400px;
+    order: -1; /* Image on top for mobile */
+  }
+  .details-left {
+    padding: 2rem;
+  }
+}

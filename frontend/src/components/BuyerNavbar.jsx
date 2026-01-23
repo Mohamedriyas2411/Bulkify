@@ -38,7 +38,7 @@ const BuyerNavbar = () => {
                 className={isMobile ? "nav-links-mobile" : "nav-links seller-nav-links"}
                 onClick={() => setIsMobile(false)} // Close menu when a link is clicked
             >
-                <li><Link to="/dashboard/buyer">HOME</Link></li>
+                <li><Link to="/buyer/dashboard">HOME</Link></li>
                 <li><Link to="/cart">CART</Link></li>
                 <li><Link to="/group">GROUP</Link></li>
                 <li><Link to="/community">COMMUNITY</Link></li>

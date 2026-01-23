@@ -1,0 +1,165 @@
+/* frontend/pages/Community.css */
+.community-container {
+  min-height: 100vh;
+  background-color: white;
+  font-family: 'Poppins', sans-serif;
+}
+
+/* Reuse cart-header-strip from Cart.css if available, or define here */
+.cart-header-strip {
+  background-color: #F97316;
+  padding: 1rem 0;
+  display: flex;
+  justify-content: center;
+}
+.header-search-wrapper {
+  position: relative;
+  width: 90%;
+  max-width: 600px;
+}
+.header-search-input {
+  width: 100%;
+  padding: 12px 45px 12px 20px;
+  border-radius: 30px;
+  border: none;
+  font-size: 1rem;
+  outline: none;
+}
+.header-search-icon {
+  position: absolute;
+  right: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #F97316;
+}
+
+/* --- TABS --- */
+.community-content {
+  padding: 2rem 1rem;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.community-tabs {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-bottom: 3rem;
+  flex-wrap: wrap;
+}
+
+.comm-tab-btn {
+  padding: 10px 30px;
+  border-radius: 10px; /* Slight rounded corners */
+  font-size: 1rem;
+  font-weight: 700;
+  border: none;
+  cursor: pointer;
+}
+
+.orange-active {
+  background-color: #F97316;
+  color: white;
+  box-shadow: 0 4px 10px rgba(249, 115, 22, 0.4);
+}
+
+.grey-inactive {
+  background-color: #f3f4f6;
+  color: #333;
+}
+
+/* --- LIST VIEW --- */
+.list-title {
+  margin-bottom: 2rem;
+  font-weight: 500;
+  color: #333;
+}
+
+.community-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 2rem;
+  padding-bottom: 1rem;
+}
+
+.comm-info {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.comm-text h4 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 0.2rem;
+}
+.comm-text p {
+  font-size: 0.95rem;
+  color: #555;
+}
+
+/* Join Button */
+.btn-join {
+  background-color: #F97316;
+  color: white;
+  border: none;
+  padding: 8px 30px;
+  border-radius: 20px;
+  font-weight: 700;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+/* Left Button (Red) */
+.btn-left {
+  background-color: #ef4444; /* Red color */
+  color: white;
+  border: none;
+  padding: 8px 30px;
+  border-radius: 20px;
+  font-weight: 700;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+/* --- CREATE VIEW --- */
+.create-community-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.form-field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.form-field label {
+  font-size: 0.9rem;
+  color: #4b5563;
+}
+
+.form-field input {
+  background-color: #f3f4f6;
+  border: none;
+  padding: 15px;
+  border-radius: 30px;
+  font-size: 1rem;
+  outline: none;
+}
+
+.btn-create-submit {
+  background-color: #F97316;
+  color: white;
+  border: none;
+  padding: 15px;
+  border-radius: 30px;
+  font-size: 1.1rem;
+  font-weight: 700;
+  cursor: pointer;
+  margin-top: 1rem;
+}

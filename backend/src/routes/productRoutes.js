@@ -9,5 +9,7 @@ router.get('/myproducts',auth, productController.getMyProducts);
 router.put('/update/:id',auth,productController.updateProduct);
 router.delete('/delete/:id',auth, productController.deleteProduct);
 router.get('/nearby', authBuyer, productController.getNearbyProducts);
+router.get('/:id', authBuyer, productController.getProductById);
+
 
 module.exports =router;
