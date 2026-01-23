@@ -9,6 +9,7 @@ const buyerRoutes = require('./src/routes/buyerRoutes');
 const deliverymanRoutes = require('./src/routes/deliverymanRoutes');
 
 
+
 const app = express();
 
 app.use(express.json());

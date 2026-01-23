@@ -12,6 +12,7 @@ import DeliveryRegister from './pages/DeliveryRegister';
 import About from './pages/About'; // Import the component
 import Contact from './pages/Contact';
 import SellerDashboard from './pages/SellerDashboard';
+import BuyerDashboard from './pages/BuyerDashboard';
 
 
 function App() {
@@ -29,6 +30,7 @@ function App() {
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/seller/dashboard" element={<SellerDashboard />} />
+        <Route path="/buyer/dashboard" element={<BuyerDashboard />} />
         
       </Routes>
     </Router>

@@ -1,0 +1,80 @@
+/* Reuse generic dashboard styles from SellerDashboard.css for container/grid */
+/* Copy the .dashboard-container, .dashboard-content, .product-grid, .product-card styles here if not importing global css */
+
+/* --- Specific Buyer Banner Styles --- */
+
+.category-buttons {
+  display: flex;
+  gap: 1rem;
+  margin-top: 2rem;
+  flex-wrap: wrap;
+  justify-content: center;
+  position: relative;
+  z-index: 2;
+}
+
+.cat-btn {
+  background-color: white; /* Default inactive is white */
+  color: #333;
+  border: none;
+  padding: 12px 25px;
+  border-radius: 10px; /* Slight rounded corners like image */
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+  margin-bottom: 0.5rem;
+}
+
+/* Active State (Highlighted Orange) */
+.cat-btn.active {
+  background-color: #F97316; /* Brand Orange */
+  color: white;
+  box-shadow: 0 4px 10px rgba(249, 115, 22, 0.4);
+}
+
+.cat-btn:hover:not(.active) {
+  background-color: #f3f4f6;
+}
+
+/* --- Buyer Card Actions --- */
+.card-actions-buyer {
+  display: flex;
+  justify-content: flex-end; /* Align button to the right */
+  margin-top: auto;
+}
+
+.btn-add-cart {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background-color: #F97316; /* Orange Add Button */
+  color: white;
+  border: none;
+  padding: 8px 24px;
+  border-radius: 8px; /* Standard rounded corners */
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.btn-add-cart:hover {
+  background-color: #ea580c;
+}
+
+/* Responsive Tweaks */
+@media (max-width: 768px) {
+  .category-buttons {
+    gap: 0.5rem;
+    margin-top: 1.2rem;
+  }
+  .cat-btn {
+    padding: 10px 15px;
+    font-size: 0.95rem;
+    flex: 1 1 auto; /* Grow to fill space */
+    min-width: 120px;
+    margin-bottom: 0.5rem;
+  }
+}

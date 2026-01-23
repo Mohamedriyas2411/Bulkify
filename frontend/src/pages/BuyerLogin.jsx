@@ -55,7 +55,6 @@ const BuyerLogin = () => {
   return (
     <div className="main-container">
       <Navbar />
-      
       <section className="hero-section">
         {/* Reusing Watermark */}
         <div className="watermark-text">
@@ -67,37 +66,27 @@ const BuyerLogin = () => {
           <span>F</span>
           <span>Y</span>
         </div>
-
         <div className="hero-content">
           {/* Left Side: Image */}
           <div className="hero-image-container">
             <img src={HeroImg} alt="Community Bulk Buying" className="hero-img" />
           </div>
-
           {/* Right Side: Sign In Form */}
           <div className="login-form-container">
             <h2 className="login-heading">Sign in</h2>
-            
+            {error && <p style={{ color: 'red', marginBottom: '1rem' }}>{error}</p>}
             <form className="login-form" onSubmit={handleSubmit}>
               <div className="input-group">
-                <label>Name</label>
-                <input type="text" placeholder="" name='name' onChange={handleChange}/>
-              </div>
-
-              <div className="input-group">
                 <label>Email</label>
-                <input type="email" placeholder="" name='email' onChange={handleChange} />
+                <input type="email" placeholder="" name='email' value={formData.email} onChange={handleChange} required />
               </div>
-
               <div className="input-group">
                 <label>Password</label>
-                <input type="password" placeholder="" name='password' onChange={handleChange} />
+                <input type="password" placeholder="" name='password' value={formData.password} onChange={handleChange} required />
               </div>
-
               <button type="submit" className="signin-button">
                 Sign in
               </button>
-
               <p className="register-link">
                 Not Registered? <Link to="/register">Register</Link>
               </p>
