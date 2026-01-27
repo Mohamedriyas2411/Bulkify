@@ -35,6 +35,31 @@ const ProductDetails = () => {
     }
   };
 
+  const handleAddToWishlist = async () => {
+    const token = localStorage.getItem('buyerToken');
+    try {
+      const res = await fetch('http://localhost:5000/api/products/wishlist/add', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'x-auth-token': token
+        },
+        body: JSON.stringify({ productId: product._id })
+      });
+      const data = await res.json();
+      if (res.ok) {
+        alert("Product added to wishlist!");
+        navigate('/cart'); // Optional: redirect to cart
+      } else {
+        console.error('Add to wishlist error:', data);
+        alert(data.message || data.error || "Failed to add to wishlist");
+      }
+    } catch (err) {
+      console.error('Network or unexpected error:', err);
+      alert("Failed to add to wishlist");
+    }
+  };
+
   const handleAddToCart = async () => {
     const token = localStorage.getItem('buyerToken');
     try {
@@ -110,7 +135,7 @@ const ProductDetails = () => {
             </button>
 
             {/* Optional Wishlist Icon */}
-            <div className="wishlist-icon">
+            <div className="wishlist-icon" onClick={handleAddToWishlist}>
                <Heart size={30} />
                <span>Add to wishlist</span>
             </div>

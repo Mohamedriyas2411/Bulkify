@@ -1,3 +1,16 @@
+// Get all wishlist products for the logged-in buyer
+exports.getWishlist = async (req, res) => {
+    try {
+        const buyer = await Buyer.findById(req.buyer.id).populate('wishlist');
+        if (!buyer) return res.status(404).json({ msg: 'Buyer not found' });
+        // Return as array of { product: ... } for frontend compatibility
+        const wishlist = (buyer.wishlist || []).map(product => ({ product }));
+        res.json(wishlist);
+    } catch (err) {
+        console.error(err.message);
+        res.status(500).send('Server Error');
+    }
+};
 const Product = require('../models/Product');
 const Seller = require('../models/Seller');
 const Buyer = require('../models/Buyer');
@@ -137,4 +150,34 @@ exports.getProductById = async (req, res) => {
         console.error(err.message);
         if (err.kind === 'ObjectId') return res.status(404).json({ msg: 'Product not found' });
         res.status(500).send('Server Error');    }
+};
+
+exports.addToWishlist = async (req, res) => {
+    try {
+        const buyer = await Buyer.findById(req.buyer.id);
+        if (!buyer) return res.status(404).json({ msg: 'Buyer not found' });
+        const productId = req.body.productId;
+        if (buyer.wishlist.includes(productId)) {
+            return res.status(400).json({ msg: 'Product already in wishlist' });
+        }
+        buyer.wishlist.push(productId);
+        await buyer.save();
+        res.json({ msg: 'Product added to wishlist' });
+    } catch (err) {
+        console.error(err.message);
+        res.status(500).send('Server Error');
+    }
+};
+exports.removeFromWishlist = async (req, res) => {
+    try {
+        const buyer = await Buyer.findById(req.buyer.id);
+        if (!buyer) return res.status(404).json({ msg: 'Buyer not found' });
+        const productId = req.body.productId;
+        buyer.wishlist = buyer.wishlist.filter(id => id.toString() !== productId);
+        await buyer.save();
+        res.json({ msg: 'Product removed from wishlist' });
+    } catch (err) {
+        console.error(err.message);
+        res.status(500).send('Server Error');
+    }
 };

@@ -27,6 +27,10 @@ const BuyerSchema = new mongoose.Schema({
             type:String,
             required:true
         }
-    }
+    },
+    wishlist: [{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Product'
+    }]
 });
 module.exports =  mongoose.model('Buyer',BuyerSchema);

@@ -9,6 +9,13 @@ router.get('/myproducts',auth, productController.getMyProducts);
 router.put('/update/:id',auth,productController.updateProduct);
 router.delete('/delete/:id',auth, productController.deleteProduct);
 router.get('/nearby', authBuyer, productController.getNearbyProducts);
+
+
+// Wishlist routes
+router.get('/wishlist', authBuyer, productController.getWishlist);
+router.post('/wishlist/add', authBuyer, productController.addToWishlist);
+router.post('/wishlist/remove', authBuyer, productController.removeFromWishlist);
+
 router.get('/:id', authBuyer, productController.getProductById);
 
 

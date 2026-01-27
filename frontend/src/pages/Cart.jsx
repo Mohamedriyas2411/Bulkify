@@ -3,10 +3,13 @@ import BuyerNavbar from '../components/BuyerNavbar';
 import { useLocation, useNavigate } from 'react-router-dom'; // Import hooks
 import './Cart.css';
 
+
 const Cart = () => {
     const [cartItems, setCartItems] = useState([]);
+    const [wishlistItems, setWishlistItems] = useState([]);
     const [activeTab, setActiveTab] = useState('cart'); 
     const [loading, setLoading] = useState(true); 
+    const [wishlistLoading, setWishlistLoading] = useState(true);
     
     const navigate = useNavigate();
     const location = useLocation();
@@ -29,8 +32,24 @@ const Cart = () => {
         }
     };
 
+    const fetchWishlist = async () => {
+        const token = localStorage.getItem('buyerToken');
+        try {
+            const res = await fetch('http://localhost:5000/api/products/wishlist', {
+                headers: { 'x-auth-token': token }
+            });
+            const data = await res.json();
+            setWishlistItems(data);
+            setWishlistLoading(false);
+        } catch (err) {
+            console.error("Error fetching wishlist", err);
+            setWishlistLoading(false);
+        }
+    };
+
     useEffect(() => {
         fetchCart();
+        fetchWishlist();
     }, []);
 
     const handleRemove = async(cartId) => {
@@ -44,7 +63,21 @@ const Cart = () => {
         } catch (err) {
             console.error("Error removing item from cart", err);
         }
-    };  
+    };
+
+    const handleRemoveWishlist = async(productId) => {
+        const token = localStorage.getItem('buyerToken');
+        try {
+            await fetch('http://localhost:5000/api/products/wishlist/remove', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json', 'x-auth-token': token },
+                body: JSON.stringify({ productId })
+            });
+            fetchWishlist();
+        } catch (err) {
+            console.error("Error removing item from wishlist", err);
+        }
+    };
 
     // NEW: Handle Selecting an item to return to Group page
     const handleSelectProduct = (item) => {
@@ -118,8 +151,33 @@ const Cart = () => {
                 )}
 
                 {activeTab === 'wishlist' && (
-                    <div className="wishlist-placeholder">
-                        <p style={{ gridColumn: '1/-1', textAlign: 'center' }}>Wishlist is empty</p>
+                    <div className="cart-grid">
+                        {wishlistLoading ? (
+                            <p>Loading wishlist...</p>
+                        ) : wishlistItems.length === 0 ? (
+                            <p style={{ gridColumn: '1/-1', textAlign: 'center' }}>Wishlist is empty</p>
+                        ) : (
+                            wishlistItems.map((item) => (
+                                <div key={item._id || item.product?._id} className="cart-card">
+                                    <img 
+                                        src={item.product?.image || "https://via.placeholder.com/150"} 
+                                        alt={item.product?.name} 
+                                        className="cart-img" 
+                                    />
+                                    <div className="cart-details">
+                                        <h3 className="cart-title">{item.product?.name}</h3>
+                                        <p className="cart-price">Rs. {item.product?.price}</p>
+                                        {/* Wishlist does not have quantity */}
+                                        <button 
+                                            className="btn-remove"
+                                            onClick={() => handleRemoveWishlist(item.product?._id)}
+                                        >
+                                            Remove
+                                        </button>
+                                    </div>
+                                </div>
+                            ))
+                        )}
                     </div>
                 )}
 
