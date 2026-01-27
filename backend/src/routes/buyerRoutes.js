@@ -3,6 +3,7 @@ const router = express.Router();
 const {check} = require('express-validator');
 const buyerController = require('../controllers/buyerController');
 
+
 router.post(
     '/register',
     [
