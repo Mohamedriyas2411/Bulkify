@@ -5,7 +5,7 @@ const communityController = require('../controllers/communityController');
 
 router.post('/create', authBuyer, communityController.createCommunity);
 router.get('/nearby', authBuyer, communityController.getNearbyCommunities);
-router.get('joined', authBuyer, communityController.getJoinedCommunities);
+router.get('/joined', authBuyer, communityController.getJoinedCommunities);
 router.put('/join/:id', authBuyer, communityController.joinCommunity);
 router.put('/leave/:id', authBuyer, communityController.leaveCommunity);
 router.delete('/delete/:id', authBuyer, communityController.deleteCommunity);

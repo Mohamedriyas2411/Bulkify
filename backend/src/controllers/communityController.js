@@ -48,7 +48,7 @@ exports.getNearbyCommunities = async (req, res) => {
         const buyerlat = parseFloat(buyer.location.latitude);
         const buyerlon = parseFloat(buyer.location.longitude);
 
-        const allCommunties = await Community.find({});
+        const allCommunities = await Community.find({});
 
         const nearby = allCommunities.filter(comm =>{
             const isMember = comm.members.some(memberId => memberId.toString() === req.buyer.id);
@@ -69,8 +69,13 @@ exports.getNearbyCommunities = async (req, res) => {
 
 exports.getJoinedCommunities = async (req, res) => {
     try{
-        const communties = await Community.find({members: req.buyer.id});
-        res.json(communties);
+        const communities = await Community.find({
+            $or: [
+                { members: req.buyer.id },
+                { leader: req.buyer.id }
+            ]
+        });
+        res.json(communities);
     }catch(err){
         console.error(err.message);
         res.status(500).send('Server Error');

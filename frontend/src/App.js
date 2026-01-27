@@ -16,6 +16,7 @@ import BuyerDashboard from './pages/BuyerDashboard';
 import ProductDetails from './pages/ProductDetails';
 import Cart from './pages/Cart';
 import Community from './pages/Community';
+import Group from './pages/Group'
 
 function App() {
   return (
@@ -36,6 +37,8 @@ function App() {
         <Route path="/product/:id" element={<ProductDetails />} />
         <Route path="/cart" element={<Cart />} />
         <Route path="/community" element={<Community />} />
+        <Route path="/group" element={<Group />} />
+
       </Routes>
     </Router>
   );

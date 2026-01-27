@@ -111,7 +111,7 @@ const BuyerRegister =() =>{
 
             localStorage.setItem("buyerToken", data.token);
             alert("Registration successful!");
-            navigate("/dashboard/buyer");
+            navigate("/buyer/dashboard");
 
 
         }catch(err){

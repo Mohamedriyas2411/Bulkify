@@ -1,0 +1,73 @@
+.group-container {
+  min-height: 100vh;
+  background-color: white;
+  font-family: 'Poppins', sans-serif;
+}
+
+/* Header strip (reused) */
+.cart-header-strip {
+  background-color: #F97316;
+  padding: 1rem 0;
+  display: flex;
+  justify-content: center;
+}
+.header-search-wrapper { position: relative; width: 90%; max-width: 600px; }
+.header-search-input { width: 100%; padding: 12px 45px 12px 20px; border-radius: 30px; border: none; font-size: 1rem; outline: none; }
+.header-search-icon { position: absolute; right: 15px; top: 50%; transform: translateY(-50%); color: #F97316; }
+
+/* Tabs */
+.group-content { padding: 2rem 1rem; max-width: 900px; margin: 0 auto; }
+.group-tabs { display: flex; justify-content: center; gap: 1rem; margin-bottom: 2rem; flex-wrap: wrap; }
+.group-tab-btn { padding: 10px 25px; border-radius: 10px; font-weight: 700; border: none; cursor: pointer; }
+.orange-active { background-color: #F97316; color: white; }
+.grey-inactive { background-color: #f3f4f6; color: #333; }
+
+/* Group List */
+.list-heading { margin-bottom: 1.5rem; color: #555; }
+.group-card {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  background: white;
+  border-bottom: 1px solid #eee;
+  padding: 1.5rem 0;
+}
+.group-img { width: 80px; height: 80px; object-fit: cover; border-radius: 10px; }
+.group-info { flex: 1; }
+.group-info h4 { font-size: 1.1rem; margin-bottom: 0.2rem; }
+.prod-name { font-weight: 600; color: #F97316; margin-bottom: 0.5rem; }
+.sub-text { font-size: 0.85rem; color: #666; }
+.comm-tag { font-size: 0.8rem; background: #eee; padding: 2px 8px; border-radius: 4px; display: inline-block; margin-top: 5px; }
+
+/* Actions */
+.group-actions { display: flex; flex-direction: column; gap: 0.5rem; min-width: 120px; }
+.btn-join-group { background-color: #F97316; color: white; border: none; padding: 8px; border-radius: 5px; font-weight: 600; cursor: pointer; }
+.btn-view-prod { background-color: #38bdf8; color: white; border: none; padding: 8px; border-radius: 5px; font-weight: 600; cursor: pointer; }
+.disabled { background-color: #ccc; cursor: default; }
+
+/* Progress Bar */
+.progress-container { width: 100%; background: #eee; height: 8px; border-radius: 4px; margin: 5px 0; }
+.progress-bar { height: 100%; background: #22c55e; border-radius: 4px; }
+
+/* Create Form */
+.create-group-wrapper { max-width: 500px; margin: 0 auto; display: flex; flex-direction: column; gap: 1.5rem; }
+.form-field { display: flex; flex-direction: column; gap: 0.5rem; }
+.form-field label { font-size: 0.9rem; color: #555; }
+.form-field input { background: #f3f4f6; border: none; padding: 12px; border-radius: 8px; }
+
+.btn-choose-cart { background: #38bdf8; color: white; border: none; padding: 10px; border-radius: 5px; cursor: pointer; }
+.cart-picker-item { padding: 10px; border-bottom: 1px solid #eee; cursor: pointer; }
+.cart-picker-item:hover { background: #f9f9f9; }
+
+.btn-create-submit { background: #F97316; color: white; border: none; padding: 15px; border-radius: 30px; font-size: 1.1rem; font-weight: 700; cursor: pointer; margin-top: 1rem; }
+
+/* Modal */
+.modal-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); display: flex; justify-content: center; align-items: center; z-index: 1000; }
+.payment-modal { background: white; padding: 2rem; border-radius: 15px; width: 90%; max-width: 400px; }
+.payment-modal h3 { color: #F97316; margin-bottom: 1.5rem; text-align: center; }
+.pay-details { text-align: center; margin-bottom: 2rem; background: #f9f9f9; padding: 1rem; border-radius: 10px; }
+.pay-details h2 { font-size: 2rem; color: #333; }
+.pay-methods input { width: 100%; padding: 10px; margin-bottom: 1rem; border: 1px solid #ddd; border-radius: 5px; }
+.pay-actions { display: flex; gap: 1rem; }
+.btn-pay { flex: 1; background: #22c55e; color: white; border: none; padding: 12px; border-radius: 5px; font-weight: bold; cursor: pointer; }
+.btn-cancel { flex: 1; background: #ef4444; color: white; border: none; padding: 12px; border-radius: 5px; font-weight: bold; cursor: pointer; }

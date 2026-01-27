@@ -9,6 +9,7 @@ const buyerRoutes = require('./src/routes/buyerRoutes');
 const deliverymanRoutes = require('./src/routes/deliverymanRoutes');
 const cartRoutes = require('./src/routes/cartRoutes');
 const communityRoutes = require('./src/routes/communityRoutes');
+const groupRoutes = require('./src/routes/groupRoutes');
 
 const app = express();
 
@@ -25,6 +26,7 @@ app.use('/api/buyers', buyerRoutes);
 app.use('/api/deliverymen', deliverymanRoutes);
 app.use('/api/cart', cartRoutes);
 app.use('/api/communities', communityRoutes);
+app.use('/api/groups', groupRoutes);
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
